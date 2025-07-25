@@ -1,0 +1,6 @@
+@import './basics/base.css';
+@import './basics/layout.css';
+
+/*components*/
+@import './components/TodoList.css';
+@import './components/TodoPreview.css';

@@ -1,0 +1,15 @@
+.todo-preview {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+
+    .todo-metadata {
+        display: grid;
+        grid-template-columns: minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px);
+        gap: 1em;
+    }
+
+    &.cards {
+        flex-direction: column;
+    }
+}
