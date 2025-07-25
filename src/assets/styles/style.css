@@ -4,3 +4,4 @@
 /*components*/
 @import './components/TodoList.css';
 @import './components/TodoPreview.css';
+@import './components/SelectModal.css';
