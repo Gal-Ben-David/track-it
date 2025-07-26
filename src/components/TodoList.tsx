@@ -3,6 +3,7 @@ import type { Todo } from "../types/todo";
 import { TodoPreview } from "./TodoPreview";
 import { TodoForm } from "./TodoForm";
 import { todoService } from "../services/todo.service";
+import { DisplayToggle } from "./DisplayToggle";
 
 export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemoveTodo }:
     {
@@ -12,17 +13,14 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemov
         setEditingTodo: (todo: Todo) => void,
         onRemoveTodo: (id: string) => void
     }) {
-    const [display, setDisplay] = useState<string>('table')
 
-    const handleDisplayChange = () => {
-        setDisplay(prev => prev === 'table' ? 'cards' : 'table')
-    }
+    const [display, setDisplay] = useState<'table' | 'cards'>('table')
 
     return (
         <>
             <div className="actions">
-                <button onClick={handleDisplayChange}>Toggle display</button>
-                <button onClick={() => setEditingTodo(todoService.getEmptyTodo())}>➕</button>
+                <DisplayToggle setDisplay={setDisplay} display={display} />
+                <button className="adding-task-btn" onClick={() => setEditingTodo(todoService.getEmptyTodo())}>➕</button>
             </div>
 
             <ul className={`todo-list ${display}`}>

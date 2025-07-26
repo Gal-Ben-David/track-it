@@ -58,6 +58,12 @@ p {
     margin: 0;
 }
 
+input {
+    border: 1px solid var(--clr-border);
+    padding: .5em;
+    border-radius: .5em;
+}
+
 button {
     border-radius: 8px;
     border: 1px solid transparent;
