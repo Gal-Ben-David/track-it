@@ -6,11 +6,15 @@
     .todo-metadata {
         position: relative;
         display: grid;
-        grid-template-columns: minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 50px) minmax(auto, 50px);
+        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) 50px 50px;
         gap: 1em;
         align-items: start;
 
         text-align: center;
+
+        .action {
+            cursor: pointer;
+        }
     }
 
     &.cards {
@@ -20,8 +24,6 @@
         border-radius: 1em;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
-
-
 }
 
 .priority {

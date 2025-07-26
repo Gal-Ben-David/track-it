@@ -29,7 +29,7 @@ export const demoTodos: Todo[] = [
         id: '104',
         title: 'Call Mom',
         priority: 'high',
-        status: 'todo',
+        status: 'done',
         createdAt: Date.now() - 1000 * 60 * 10,
         dueDate: Date.now() + 1000 * 60 * 60,
     },
