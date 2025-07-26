@@ -2,6 +2,10 @@
 
 A desktop app for tracking tasks, built with **Electron**, **Vite**, and **TypeScript**.
 
+![track-it-table-view](https://res.cloudinary.com/dvykycdey/image/upload/v1753566455/track-it-table-view_vggdcu.png)
+
+![track-it-cards-view](https://res.cloudinary.com/dvykycdey/image/upload/v1753566532/track-it-cards-view_lfcr9l.png)
+
 ---
 
 ## 🚀 Features
