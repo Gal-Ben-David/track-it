@@ -9,8 +9,12 @@ export function TodoPreview({ todo, setEditingTodo, onRemoveTodo }:
                 <span className={`priority ${todo.priority}`}>{todo.priority}</span>
                 <span>{todo.status}</span>
                 <span> {todo.dueDate ? new Date(todo.dueDate).toLocaleDateString() : ''}</span>
-                <span className="action" onClick={() => setEditingTodo(todo)}>🔘</span>
-                <span className="action" onClick={() => onRemoveTodo(todo.id)}>🔴</span>
+                <span className="action" onClick={() => setEditingTodo(todo)}>
+                    <img className="action-icon" src="/img/edit-icon.svg" />
+                </span>
+                <span className="action" onClick={() => onRemoveTodo(todo.id)}>
+                    <img className="action-icon" src="/img/delete-icon.svg" />
+                </span>
             </div>
         </>
     )

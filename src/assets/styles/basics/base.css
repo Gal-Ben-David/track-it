@@ -68,6 +68,10 @@ input {
     border: 1px solid var(--clr-border);
     padding: .5em;
     border-radius: .5em;
+
+    &.field {
+        width: 80px;
+    }
 }
 
 button {

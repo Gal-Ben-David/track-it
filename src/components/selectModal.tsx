@@ -28,21 +28,15 @@ export function SelectModal({ options, onSelect, onClose, position }: SelectModa
             ref={modalRef}
             className="dropdown-modal"
             style={{
-                position: 'absolute',
-                top: position.top,
+                top: position.top + 5,
                 left: position.left,
-                backgroundColor: 'white',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                zIndex: 9999,
-                padding: '0.5rem',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
             }}
         >
-            <ul>
+            <ul className="option-list">
                 {options.map(option => (
-                    <li key={option}>
+                    <li key={option} >
                         <button
+                            className={`${option}`}
                             style={{ display: 'block', width: '100%' }}
                             onClick={() => {
                                 onSelect(option)

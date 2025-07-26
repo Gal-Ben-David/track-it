@@ -6,7 +6,7 @@
     .todo-metadata {
         position: relative;
         display: grid;
-        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) 50px 50px;
+        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) 30px 30px;
         gap: 1em;
         align-items: start;
 
@@ -14,6 +14,11 @@
 
         .action {
             cursor: pointer;
+
+            .action-icon {
+                margin-block-start: .1em;
+                width: 18px;
+            }
         }
     }
 
@@ -24,6 +29,8 @@
         border-radius: 1em;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
+
+
 }
 
 .priority {
