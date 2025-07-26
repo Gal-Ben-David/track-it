@@ -26,7 +26,7 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemov
             <ul className={`todo-list ${display}`}>
                 {display === 'table' &&
                     <li className="headline todo-preview">
-                        <p>Task</p>
+                        <p className="todo-title">Task</p>
                         <div className="headline todo-metadata">
                             <span>Priority</span>
                             <span>Status</span>

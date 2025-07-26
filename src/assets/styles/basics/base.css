@@ -56,6 +56,12 @@ li {
 
 p {
     margin: 0;
+
+    &.todo-title {
+        width: 250px;
+        word-break: break-word;
+        white-space: normal;
+    }
 }
 
 input {
@@ -76,7 +82,7 @@ button {
     transition: border-color 0.25s;
 
     &.save-task-button {
-        padding: 0;
+        padding: .4em 0;
         font-size: .8rem;
     }
 }
@@ -90,7 +96,7 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root {
         color: #213547;
         background-color: #ffffff;
@@ -100,7 +106,9 @@ button:focus-visible {
         color: #747bff;
     }
 
-    button {
+    button,
+    input {
         background-color: #f9f9f9;
+        color: #213547;
     }
 }

@@ -1,5 +1,6 @@
 .todo-index {
     gap: 1em;
+    padding-block-end: 1em;
 }
 
 .actions {
