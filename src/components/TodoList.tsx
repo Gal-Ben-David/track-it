@@ -2,10 +2,11 @@ import { useState } from "react";
 import type { Todo } from "../types/todo";
 import { TodoPreview } from "./TodoPreview";
 import { TodoForm } from "./TodoForm";
+import { todoService } from "../services/todo.service";
 
-export function TodoList({ todos }: { todos: Todo[] }) {
+export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo }:
+    { todos: Todo[], onSubmit: (todo: Todo) => void, editingTodo: Todo | null, setEditingTodo: (todo: Todo) => void }) {
     const [display, setDisplay] = useState<string>('table')
-    const [todoToEdit, setTodoToEdit] = useState(false)
 
     const handleDisplayChange = () => {
         setDisplay(prev => prev === 'table' ? 'cards' : 'table')
@@ -14,7 +15,7 @@ export function TodoList({ todos }: { todos: Todo[] }) {
     return (
         <>
             <button onClick={handleDisplayChange}>Toggle display</button>
-            <button onClick={() => setTodoToEdit(prev => !prev)}>Add task</button>
+            <button onClick={() => setEditingTodo(todoService.getEmptyTodo())}>Add task</button>
 
             <ul className="todo-list">
                 {display === 'table' &&
@@ -28,11 +29,11 @@ export function TodoList({ todos }: { todos: Todo[] }) {
                     </li>
                 }
 
-                {todoToEdit && <TodoForm />}
+                {editingTodo && <TodoForm onSubmit={onSubmit} display={display} todo={editingTodo} />}
 
                 {todos.map(todo =>
-                    <li key={todo.id} className={`todo-preview ${display}`}>
-                        <TodoPreview todo={todo} />
+                    <li key={todo.id} className={`todo-preview ${display}`} style={{ display: editingTodo?.id === todo.id ? 'none' : 'flex' }}>
+                        <TodoPreview todo={todo} setEditingTodo={setEditingTodo} />
                     </li>
                 )}
             </ul>

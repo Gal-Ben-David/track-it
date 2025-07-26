@@ -1,8 +1,8 @@
 export interface Todo {
     id: string
     title: string
-    priority: 'low' | 'medium' | 'high'
-    done: boolean
-    dueDate: number
-    createdAt: number
+    priority: string
+    status: string
+    dueDate?: number | null
+    createdAt: number | null
 }

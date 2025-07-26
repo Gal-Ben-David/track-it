@@ -1,9 +1,12 @@
 
 const getEmptyTodo = () => {
     return {
+        id: '',
         title: '',
         priority: '',
-        done: false,
+        status: 'in progress',
+        dueDate: null,
+        createdAt: null
     }
 }
 

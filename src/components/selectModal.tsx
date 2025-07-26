@@ -1,14 +1,13 @@
 import { useEffect, useRef } from "react";
 
 interface SelectModalProps {
-    title: string
     options: string[]
     onSelect: (value: string) => void
     onClose: () => void
     position: { top: number; left: number }
 }
 
-export function SelectModal({ title, options, onSelect, onClose, position }: SelectModalProps) {
+export function SelectModal({ options, onSelect, onClose, position }: SelectModalProps) {
     const modalRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
