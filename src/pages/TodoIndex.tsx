@@ -17,16 +17,20 @@ export function TodoIndex() {
         const isUpdate = todo.id
         if (isUpdate) {
 
-            setTodos(prev =>
-                prev.map(t => t.id === todo.id ? { ...t, ...todo } : t)
-            )
+            setTodos(prev => {
+                const updatedTodos = prev.map(t => t.id === todo.id ? { ...t, ...todo } : t)
+                return updatedTodos
+            })
         } else {
             const newTodo: Todo = {
                 ...todo,
                 id: uuidv4(),
                 createdAt: Date.now()
             }
-            setTodos(prev => [newTodo, ...prev,])
+            setTodos(prev => {
+                const updatedTodos = [newTodo, ...prev,]
+                return updatedTodos
+            })
         }
 
         setEditingTodo(null)

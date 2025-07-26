@@ -5,3 +5,6 @@
 @import './components/TodoList.css';
 @import './components/TodoPreview.css';
 @import './components/SelectModal.css';
+
+/*pages*/
+@import './pages/TodoIndex.css';

@@ -6,7 +6,7 @@
     .todo-metadata {
         position: relative;
         display: grid;
-        grid-template-columns: minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 50px) minmax(auto, 50px);
+        grid-template-columns: minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 30px) minmax(auto, 30px);
         gap: 1em;
 
         text-align: center;
@@ -14,5 +14,28 @@
 
     &.cards {
         flex-direction: column;
+        border: 1px solid var(--clr-border);
+        padding: 1em;
+        border-radius: 1em;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
+}
+
+.priority {
+    border-radius: .5em;
+}
+
+.high {
+    background-color: var(--clr-bg-high-priority);
+    color: var(--clr-txt-high-priority);
+}
+
+.medium {
+    background-color: var(--clr-bg-medium-priority);
+    color: var(--clr-txt-medium-priority);
+}
+
+.low {
+    background-color: var(--clr-bg-low-priority);
+    color: var(--clr-txt-low-priority);
 }

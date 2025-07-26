@@ -1,7 +1,15 @@
 .todo-list {
     display: grid;
+    gap: .8em;
 
     .headline {
         display: flex;
     }
+
+    &.cards {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
 }

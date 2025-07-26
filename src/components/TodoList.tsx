@@ -20,10 +20,12 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemov
 
     return (
         <>
-            <button onClick={handleDisplayChange}>Toggle display</button>
-            <button onClick={() => setEditingTodo(todoService.getEmptyTodo())}>Add task</button>
+            <div className="actions">
+                <button onClick={handleDisplayChange}>Toggle display</button>
+                <button onClick={() => setEditingTodo(todoService.getEmptyTodo())}>➕</button>
+            </div>
 
-            <ul className="todo-list">
+            <ul className={`todo-list ${display}`}>
                 {display === 'table' &&
                     <li className="headline todo-preview">
                         <p>Task</p>

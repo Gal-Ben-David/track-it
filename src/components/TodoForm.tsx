@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { todoService } from "../services/todo.service"
 import { SelectModal } from "./selectModal"
 import type { Todo } from "../types/todo"
@@ -28,6 +28,10 @@ export function TodoForm({ todo, onSubmit, display }: { todo: Todo, onSubmit: (t
             isModal: false,
         },
     ]
+
+    useEffect(() => {
+        setTodoToEdit(todo)
+    }, [todo])
 
     function handleChange(ev: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = ev.target
