@@ -10,7 +10,7 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemov
         todos: Todo[],
         onSubmit: (todo: Todo) => void,
         editingTodo: Todo | null,
-        setEditingTodo: (todo: Todo) => void,
+        setEditingTodo: (todo: Todo | null) => void,
         onRemoveTodo: (id: string) => void
     }) {
 
@@ -35,7 +35,7 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemov
                     </li>
                 }
 
-                {editingTodo && <TodoForm onSubmit={onSubmit} display={display} todo={editingTodo} />}
+                {editingTodo && <TodoForm onSubmit={onSubmit} display={display} todo={editingTodo} setEditingTodo={setEditingTodo} />}
 
                 {todos.map(todo =>
                     <li key={todo.id} className={`todo-preview ${display}`} style={{ display: editingTodo?.id === todo.id ? 'none' : 'flex' }}>

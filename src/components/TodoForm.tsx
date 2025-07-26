@@ -3,7 +3,8 @@ import { todoService } from "../services/todo.service"
 import { SelectModal } from "./selectModal"
 import type { Todo } from "../types/todo"
 
-export function TodoForm({ todo, onSubmit, display }: { todo: Todo, onSubmit: (todo: Todo) => void, display: string }) {
+export function TodoForm({ todo, onSubmit, display, setEditingTodo }:
+    { todo: Todo, onSubmit: (todo: Todo) => void, display: string, setEditingTodo: (todo: Todo | null) => void }) {
     const [todoToEdit, setTodoToEdit] = useState(todo ?? todoService.getEmptyTodo())
     const [modalField, setModalField] = useState<'priority' | 'status' | null>(null)
     const [dropdownPos, setDropdownPos] = useState<{ top: number; left: number } | null>(null)
@@ -76,7 +77,8 @@ export function TodoForm({ todo, onSubmit, display }: { todo: Todo, onSubmit: (t
                     />
                 ))}
 
-                {todoToEdit.title && <button className="save-task-button">save</button>}
+                <button className="save-task-button" disabled={!todoToEdit.title}>✔️</button>
+                {todoToEdit && <button className="save-task-button" type="button" onClick={() => setEditingTodo(null)}>✖️</button>}
             </div>
 
             {modalField && dropdownPos && (
