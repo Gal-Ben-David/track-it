@@ -4,8 +4,14 @@ import { TodoPreview } from "./TodoPreview";
 import { TodoForm } from "./TodoForm";
 import { todoService } from "../services/todo.service";
 
-export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo }:
-    { todos: Todo[], onSubmit: (todo: Todo) => void, editingTodo: Todo | null, setEditingTodo: (todo: Todo) => void }) {
+export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo, onRemoveTodo }:
+    {
+        todos: Todo[],
+        onSubmit: (todo: Todo) => void,
+        editingTodo: Todo | null,
+        setEditingTodo: (todo: Todo) => void,
+        onRemoveTodo: (id: string) => void
+    }) {
     const [display, setDisplay] = useState<string>('table')
 
     const handleDisplayChange = () => {
@@ -33,7 +39,7 @@ export function TodoList({ todos, onSubmit, editingTodo, setEditingTodo }:
 
                 {todos.map(todo =>
                     <li key={todo.id} className={`todo-preview ${display}`} style={{ display: editingTodo?.id === todo.id ? 'none' : 'flex' }}>
-                        <TodoPreview todo={todo} setEditingTodo={setEditingTodo} />
+                        <TodoPreview todo={todo} setEditingTodo={setEditingTodo} onRemoveTodo={onRemoveTodo} />
                     </li>
                 )}
             </ul>
