@@ -8,6 +8,7 @@
         display: grid;
         grid-template-columns: minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 100px) minmax(auto, 50px) minmax(auto, 50px);
         gap: 1em;
+        align-items: start;
 
         text-align: center;
     }
