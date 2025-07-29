@@ -1,69 +1,82 @@
-# React + TypeScript + Vite
+# 🧭 Track-It
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A desktop app for tracking tasks, built with **Electron**, **Vite**, and **TypeScript**.
 
-Currently, two official plugins are available:
+![track-it-table-view](https://res.cloudinary.com/dvykycdey/image/upload/v1753566455/track-it-table-view_vggdcu.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![track-it-cards-view](https://res.cloudinary.com/dvykycdey/image/upload/v1753566532/track-it-cards-view_lfcr9l.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Electron-based cross-platform desktop app
+- Vite-powered frontend with hot module replacement
+- Unit tested with Jest
+- Clean, minimal interface
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Setup
+
+1. **Clone and install dependencies:**
+
+```bash
+git clone https://github.com/your-username/track-it.git
+cd track-it
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Run test
+```bash
+npm test
 ```
+
+3. Run in development mode:
+```bash
+npm start
+```
+  This launches:
+  - Vite dev server on port 5173
+  - Electron app with live reload
+
+---
+
+## Architecture Decisions
+- Electron for desktop app shell: Chosen for cross-platform desktop app development with access to native APIs.
+- React for UI: Enables efficient, declarative UI construction and component-based architecture.
+- TypeScript: Provides static typing for safer and more maintainable code.
+- Vite: Fast build tool for bundling front-end assets.
+- Local Storage: Used for for quick data saving during development.
+- React-Toastify: For user-friendly notifications.
+- Unit Testing with Jest & ts-jest: For ensuring reliability of core CRUD operations.
+  
+---
+
+## Known Limitations
+- Currently, no cloud sync.
+- No user authentication implemented.
+- UI responsiveness could be improved for very small screen sizes.
+- Error handling is basic; could benefit from more detailed logs and recovery options.
+
+---
+
+## API Documentation for Main Modules
+todoService - handles CRUD operations and data persistence for todo items.
+
+Methods:
+- initDemoData(): Promise<void>
+  Initializes demo todos in storage if none exist.
+
+- query(): Promise<Todo[]>
+  Returns all todos.
+
+- add(todo: Todo): Promise<Todo>
+  Adds a new todo.
+
+- update(todo: Todo): Promise<Todo>
+  Updates an existing todo.
+
+- remove(todoId: string): Promise<void>
+  Deletes a todo by id.
